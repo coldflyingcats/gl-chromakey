@@ -180,11 +180,6 @@ class ChromaGL {
     this._keys = []
     this.source(source)
     this.target(target)
-
-    buildWebGlBuffers.apply(this)
-    this._initialized = true
-
-    checkReady.call(this)
   }
 
   hasWebGL2 () {
@@ -289,6 +284,11 @@ class ChromaGL {
 
       this._keys.push(key)
     })
+
+    buildWebGlBuffers.apply(this)
+    this._initialized = true
+
+    checkReady.call(this)
 
     setUpShaders.apply(this)
     this.render()
